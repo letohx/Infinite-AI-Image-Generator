@@ -124,3 +124,24 @@ window.onload = async () => {
         }
     });
 }
+
+function preventScreenLockWithVideo() {
+    const video = document.getElementById('wakeLockVideo');
+
+    if (video) {
+        // Проигрываем видео
+        video.play().catch(error => {
+            console.error('Ошибка при воспроизведении видео:', error);
+        });
+
+        // Попытка повторного воспроизведения в случае остановки
+        video.addEventListener('pause', () => {
+            video.play().catch(error => {
+                console.error('Ошибка при повторном воспроизведении видео:', error);
+            });
+        });
+    }
+}
+
+// Запускаем блокировку экрана при загрузке страницы
+window.addEventListener('load', preventScreenLockWithVideo);
