@@ -129,7 +129,6 @@ function preventScreenLockWithVideo() {
     const video = document.getElementById('wakeLockVideo');
 
     if (video) {
-        // Проигрываем видео
         video.play().catch(error => {
             console.error('Ошибка при воспроизведении видео:', error);
         });
@@ -143,5 +142,6 @@ function preventScreenLockWithVideo() {
     }
 }
 
-// Запускаем блокировку экрана при загрузке страницы
+// Запускаем предотвращение блокировки экрана при загрузке страницы
 window.addEventListener('load', preventScreenLockWithVideo);
+
