@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinite AI Image Generator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #d9dfe3;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin: 0 5px 40px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .input-group {
+            margin: 15px;
+        }
+
+        input[type="text"],
+        select {
+            padding: 7px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            width: 300px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #img {
+            display: block;
+            margin: 20px auto 40px;
+            max-width: 100%;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            border-radius: 10px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.8);
+        }
+
+        #img:hover {
+            transform: scale(1.01);
+        }
+    </style>
+    <script src="app.js"></script>
+</head>
+
+<body>
+    <h1>Infinite AI Image Generator</h1>
+    <div class="container">
+        <div class="input-group">
+            <label>Token</label>
+            <input id="token" type="text" value="CB877DFF3660DE7C80599E533C090123">
+        </div>
+        <div class="input-group">
+            <label>Secret</label>
+            <input id="secret" type="text" value="4A329B2763F032D01B680EF8C1E3F23D">
+        </div>
+        <div class="input-group">
+            <label>Query</label>
+            <input id="query" type="text" value="контейнеровоз терпит крушение в шторм">
+        </div>
+        <div class="input-group">
+            <label>Negative</label>
+            <input id="negative" type="text" value="">
+        </div>
+        <div class="input-group">
+            <label>Width</label>
+            <input id="width" type="text" value="1920" size="5">
+        </div>
+        <div class="input-group">
+            <label>Height</label>
+            <input id="height" type="text" value="1080" size="5">
+        </div>
+        <div class="input-group">
+            <label>Style</label>
+            <select id="style"></select>
+        </div>
+        <button onclick="autoSetSize()">Auto Size</button>
+        <button class="btn-generate" onclick="generate()">Start generate</button>
+    </div>
+    <img src="https://www.securitylab.ru/upload/iblock/310/czkfrlquywer09wngk1syjc19txxk652.jpeg" id="img" title="Full screen">
+</body>
+
+</html>
